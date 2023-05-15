@@ -5,7 +5,8 @@ server:
 spring:
   application:
     name: Identity Client
-
+  config:
+    import: optional:configserver:http://localhost:8080
 
 jwt:
   secret: secret123
