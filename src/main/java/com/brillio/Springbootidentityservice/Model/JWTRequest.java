@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class JWTRequest {
     private String username;
     private String password;
+    private int user_id;
+
 }

@@ -20,10 +20,5 @@ public class SpringBootIdentityServiceApplication {
 		SpringApplication.run(SpringBootIdentityServiceApplication.class, args);
 
 	}
-	@Bean
-	public PasswordEncoder passwordEncoder(){
-
-		return NoOpPasswordEncoder.getInstance();
-	}
 
 }

@@ -15,6 +15,7 @@ public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         response.sendError(401, "Unauthorized");
+        response.getWriter().write("Unauthorized: Access Denied");
 
     }
 }

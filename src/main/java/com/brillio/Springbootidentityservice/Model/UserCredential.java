@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class UserCredential {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int user_id;
     private String username;
     private String email;
     private String password;

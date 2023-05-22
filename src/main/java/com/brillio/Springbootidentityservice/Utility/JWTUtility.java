@@ -18,6 +18,7 @@ public class JWTUtility implements Serializable {
     private static final long serialVersionUID = 234234523523L;
 
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437234";
 
     @Value("${jwt.secret}")
     private String secretKey;
@@ -54,11 +55,22 @@ public class JWTUtility implements Serializable {
     }
 
 
+
+
     //generate token for user
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, userDetails.getUsername());
     }
+
+    public String generateTokens(String userId, String username) {
+        return Jwts.builder()
+                .setSubject(userId)
+                .claim("username", username)
+                .signWith(SignatureAlgorithm.HS256, SECRET)
+                .compact();
+    }
+
 
 
     //while creating the token -

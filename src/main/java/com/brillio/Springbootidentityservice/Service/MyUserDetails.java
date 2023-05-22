@@ -10,10 +10,12 @@ public class MyUserDetails implements UserDetails {
 
     private String username;
     private String password;
+    private int user_id;
 
     public MyUserDetails(UserCredential userCredential){
         this.username=userCredential.getUsername();
         this.password=userCredential.getPassword();
+        this.user_id=userCredential.getUser_id();
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -28,6 +30,11 @@ public class MyUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    //@Override
+    public int getUserId() {
+        return user_id;
     }
 
     @Override
